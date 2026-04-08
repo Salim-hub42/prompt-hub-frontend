@@ -32,7 +32,7 @@ export const appConfig: ApplicationConfig = {
     providePrimeNG({ // ici on configure PrimeNG pour utiliser notre preset personnalisé et activer le mode sombre en fonction de la classe CSS .app-dark sur le body ou un conteneur parent.
       theme: {
         preset: promptPreset,
-        options:{
+        options:{ // ici on définit les options de thème, notamment le sélecteur CSS pour activer le mode sombre.
           darkModeSelector: '.app-dark',
         }
       }
