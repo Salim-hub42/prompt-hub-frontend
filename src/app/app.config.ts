@@ -29,9 +29,12 @@ export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideRouter(routes),
-    providePrimeNG({
+    providePrimeNG({ // ici on configure PrimeNG pour utiliser notre preset personnalisé et activer le mode sombre en fonction de la classe CSS .app-dark sur le body ou un conteneur parent.
       theme: {
         preset: promptPreset,
+        options:{
+          darkModeSelector: '.app-dark',
+        }
       }
     })
   ],

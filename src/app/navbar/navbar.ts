@@ -1,5 +1,5 @@
 import { NgOptimizedImage } from '@angular/common';
-import { Component } from '@angular/core'
+import { Component, signal } from '@angular/core'
 import { Button } from 'primeng/button';
 
 @Component({
@@ -8,4 +8,14 @@ import { Button } from 'primeng/button';
   templateUrl: './navbar.html',
   styleUrl: './navbar.scss',
 })
-export class Navbar {}
+export class Navbar {
+
+  isDark = signal(false)
+
+  toggledarkmode(){
+    this.isDark.update(value => !value)
+    document.documentElement.classList.toggle('app-dark', this.isDark() )
+  }
+
+
+}
