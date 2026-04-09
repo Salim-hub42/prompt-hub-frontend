@@ -11,8 +11,25 @@ body {
 .container {
 
   max-width: 40rem; // 640px, c'est une largeur confortable pour la lecture
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  margin-left: auto; // centering horizontal en utilisant les marges automatiques
+  margin-right: auto; // centering horizontal en utilisant les marges automatiques
+  padding-left: 1rem; // ajout d'un peu de padding pour éviter que le contenu ne touche les bords de l'écran sur les petits appareils
+  padding-right: 1rem; // ajout d'un peu de padding pour éviter que le contenu ne touche les bords de l'écran sur les petits appareils
+}
+
+.p-inputtext.ng-invalid.ng-touched,
+ .p-textarea.ng-invalid.ng-touched,
+  .p-select.ng-invalid.ng-touched {
+  border-color: var(--p-inputtext-invalid-border-color); // utilisation de la variable CSS pour la couleur de bordure des champs invalides
+}
+
+.invalid-feedback {
+  display:none;
+  color:var(--p-red-500); // de primeng
+}
+
+.ng-invalid.ng-dirty + .invalid-feedback,
+.ng-invalid.ng-touched + .invalid-feedback  {
+  display:block;
+
 }

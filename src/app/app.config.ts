@@ -1,5 +1,6 @@
 import { ApplicationConfig, provideBrowserGlobalErrorListeners } from '@angular/core'
-import { provideRouter } from '@angular/router'
+import { provideHttpClient } from '@angular/common/http'
+import { provideRouter, withComponentInputBinding } from '@angular/router'
 
 import { routes } from './app.routes'
 import { providePrimeNG } from 'primeng/config'
@@ -28,7 +29,8 @@ const promptPreset = definePreset(Aura, { // ici  on crée un preset personnalis
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
-    provideRouter(routes),
+    provideHttpClient(),
+    provideRouter(routes,withComponentInputBinding()),
     providePrimeNG({ // ici on configure PrimeNG pour utiliser notre preset personnalisé et activer le mode sombre en fonction de la classe CSS .app-dark sur le body ou un conteneur parent.
       theme: {
         preset: promptPreset,
