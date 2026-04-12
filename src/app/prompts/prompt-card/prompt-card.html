@@ -5,7 +5,9 @@
             <div class="text-sm text-color-secondary">@{{prompt().author.username}}</div>
         </div>
         <div class=" flex gap-2">
-          <p-button [routerLink]="['/prompts', prompt().id, 'edit']" icon="pi pi-pencil" size="small" [text]="true" /> <!-- [text]=true pour ne pas afficher le background du bouton -->
+          @if (canEdit()){
+              <p-button [routerLink]="['/prompts', prompt().id, 'edit']" icon="pi pi-pencil" size="small" [text]="true" /> <!-- [text]=true pour ne pas afficher le background du bouton -->
+          }
           <p-button icon="pi pi-copy" (onClick)="copyToClipBord()" size="small" [text]="true" /> <!-- [text]=true pour ne pas afficher le background du bouton -->
         </div>
       </div>
